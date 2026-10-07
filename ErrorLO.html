@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- TÍTULO DE LA PESTAÑA -->
+    <title>♡</title>
+
+    <!-- ICONO DE LA PESTAÑA -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="Foto/icon.png"
+    >
+
+
+    <style>
+
+        /* =========================================
+           CONFIGURACIÓN GENERAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            /* Fondo */
+            background-image: url("Fe.png");
+
+            background-position: center;
+            background-repeat: repeat;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================================
+           CONTENEDOR PRINCIPAL
+        ========================================= */
+
+        .container {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           GIF
+        ========================================= */
+
+        .gif {
+
+            /* Tamaño del GIF */
+            width: 280px;
+
+            height: auto;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================
+           CUADRO DEL TEXTO
+        ========================================= */
+
+        .message-box {
+
+            width: 90%;
+
+            max-width: 600px;
+
+            padding: 20px 30px;
+
+            margin-bottom: 25px;
+
+            background-color:
+                rgba(255, 255, 255, 0.92);
+
+            border:
+                3px
+                solid
+                #99002b;
+
+            border-radius: 15px;
+
+            box-shadow:
+                6px
+                6px
+                0
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* =========================================
+           TEXTO
+        ========================================= */
+
+        .message-box p {
+
+            font-family: cursive;
+
+            font-size: 20px;
+
+            line-height: 1.5;
+
+            color: #1a2229;
+        }
+
+
+        /* =========================================
+           BOTÓN VOLVER
+        ========================================= */
+
+        .back-button {
+
+            padding:
+                12px
+                30px;
+
+            background-color:
+                #99002b;
+
+            color: white;
+
+            border:
+                3px
+                solid
+                #99002b;
+
+            border-radius: 12px;
+
+            font-family: cursive;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                background-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+
+        /* =========================================
+           EFECTO DEL BOTÓN
+        ========================================= */
+
+        .back-button:hover {
+
+            background-color: white;
+
+            color: #99002b;
+
+            transform:
+                scale(1.07);
+        }
+
+
+        /* Cuando se presiona */
+        .back-button:active {
+
+            transform:
+                scale(0.95);
+        }
+
+
+        /* =========================================
+           CELULAR
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .gif {
+
+                width: 220px;
+            }
+
+
+            .message-box {
+
+                width: 65%;
+
+                padding:
+                    18px
+                    20px;
+            }
+
+
+            .message-box p {
+
+                font-size: 10px;
+            }
+
+
+            .back-button {
+
+                font-size: 18px;
+
+                padding:
+                    10px
+                    25px;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================== -->
+
+    <div class="container">
+
+
+        <!-- GIF -->
+
+        <img
+            src="Foto/LAndos.gif"
+            alt="Auch"
+            class="gif"
+        >
+
+
+
+        <!-- =====================================
+             CUADRO DEL MENSAJE
+        ====================================== -->
+
+        <div class="message-box">
+
+            <p>
+
+                Creo que por esta vez, no son Lando y Oscar 
+                <br>¿y si lo intentas otra vez? 
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================
+             BOTÓN VOLVER
+        ====================================== -->
+
+        <button
+            type="button"
+            class="back-button"
+            onclick="volver()"
+        >
+
+            ← Volver
+
+        </button>
+
+
+    </div>
+
+
+
+    <script>
+
+        /* =========================================
+           BOTÓN VOLVER
+        ========================================== */
+
+        function volver() {
+
+            /*
+               Al presionar el botón,
+               siempre nos manda directamente
+               a Hey.html.
+            */
+
+            window.location.href =
+                "Hey.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

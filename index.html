@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <title>♡</title>
+    <link rel="icon" type="image/png" href="Foto/icon.png">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <style>
+
+        /* =========================================
+           CONFIGURACIÓN GENERAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            width: 100%;
+            min-height: 100vh;
+
+            /*
+               Centrar todo en la pantalla
+            */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /*
+               Fondo de la pantalla
+            */
+
+            background-image: url("FE.png");
+
+            font-family: Arial, sans-serif;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================================
+           CONTENEDOR DE LA PANTALLA DE CARGA
+        ========================================= */
+
+        .loader {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+        }
+
+
+        /* =========================================
+           GIF
+        ========================================= */
+
+        .loader-gif {
+
+            width: 180px;
+
+            height: auto;
+
+            /*
+               Espacio entre GIF y texto
+            */
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================================
+           TEXTO
+        ========================================= */
+
+        .loading-text {
+
+            font-size: 22px;
+
+            color: #1a2229;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           LOS TRES PUNTITOS
+        ========================================= */
+
+        .dots span {
+
+            display: inline-block;
+
+            /*
+               Cada punto tendrá una animación
+            */
+
+            animation: loadingDots 1.4s infinite;
+
+        }
+
+
+        /*
+           Hacemos que cada punto aparezca
+           en un momento diferente.
+        */
+
+        .dots span:nth-child(2) {
+
+            animation-delay: 0.2s;
+
+        }
+
+
+        .dots span:nth-child(3) {
+
+            animation-delay: 0.4s;
+
+        }
+
+
+        /* =========================================
+           ANIMACIÓN DE LOS PUNTOS
+        ========================================= */
+
+        @keyframes loadingDots {
+
+            0%,
+            20% {
+
+                opacity: 0.2;
+
+                transform: translateY(0);
+
+            }
+
+
+            50% {
+
+                opacity: 1;
+
+                transform: translateY(-5px);
+
+            }
+
+
+            100% {
+
+                opacity: 0.2;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         PANTALLA DE CARGA
+    ========================================== -->
+
+    <div class="loader">
+
+
+        <!-- GIF -->
+
+        <img
+            src="Foto/Loading.gif"
+            alt="Cargando"
+            class="loader-gif"
+        >
+
+
+        <!-- TEXTO -->
+
+        <div class="loading-text">
+
+            Cargando
+
+            <span class="dots">
+
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+        /* =========================================
+           IR AUTOMÁTICAMENTE A HEY
+        ========================================== */
+
+
+        /*
+           3500 = 3.5 segundos
+
+           Después de ese tiempo,
+           cambia automáticamente de página.
+        */
+
+        setTimeout(() => {
+
+            window.location.href = "Hey.html";
+
+        }, 3500);
+
+
+    </script>
+
+
+</body>
+
+</html>

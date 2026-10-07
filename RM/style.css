@@ -1,0 +1,457 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("FE.png");
+    background-position: center;
+    background-repeat: repeat;
+
+    font-family: cursive;
+    overflow: hidden;
+}
+
+
+
+/* =========================================
+   PANTALLA DEL SOBRE
+========================================= */
+
+#envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    cursor: pointer;
+
+    /*
+       CUADRO BLANCO ALREDEDOR DEL SOBRE
+       sin cambiar el tamaño del sobre
+    */
+    background-color: rgba(255, 255, 255, 0.94);
+    border: 3px solid #99002b;
+    border-radius: 22px;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.10);
+
+    padding: 35px 40px;
+}
+
+
+
+/* =========================================
+   TEXTO DEL SOBRE
+========================================= */
+
+.envelope-text {
+    margin-top: 20px;
+
+    font-size: 25px;
+    line-height: 1.5;
+    color: #1a2229;
+
+    max-width: 620px;
+}
+
+
+
+/* =========================================
+   ANIMACIÓN DEL SOBRE
+========================================= */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+/* =========================================
+   SOBRE
+========================================= */
+
+#envelope {
+    width: 220px;
+    height: auto;
+    animation: pulse 1.5s infinite;
+}
+
+
+
+/* =========================================
+   CONTENEDOR DE LA SIGUIENTE PANTALLA
+========================================= */
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+
+/* =========================================
+   CAJA PRINCIPAL BLANCA
+   (ahora sí cubre todo el contenido)
+========================================= */
+
+.letter-window {
+    width: min(92vw, 760px);
+    min-height: 680px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    gap: 22px;
+
+    /*
+       CUADRO BLANCO GRANDE
+    */
+    background-color: rgba(255, 255, 255, 0.94);
+    border: 3px solid #99002b;
+    border-radius: 26px;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.10);
+
+    padding: 35px 45px;
+
+    transform: scale(0.85);
+    opacity: 0;
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease;
+}
+
+
+
+/* =========================================
+   CUANDO SE ABRE
+========================================= */
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+
+/* =========================================
+   CUADRO DEL TÍTULO
+========================================= */
+
+.question-box {
+    min-width: 350px;
+    max-width: 600px;
+
+    padding: 15px 35px;
+
+    background-color: rgba(255, 255, 255, 0.96);
+    border: 3px solid #99002b;
+    border-radius: 18px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+#letter-title {
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1a2229;
+}
+
+
+
+/* =========================================
+   GIF PRINCIPAL
+   (más grande)
+========================================= */
+
+.cat {
+    width: 560px;
+    max-width: 100%;
+    max-height: 370px;
+
+    object-fit: contain;
+    height: auto;
+
+    margin: 8px 0;
+
+    filter: drop-shadow(5px 8px 5px rgba(0, 0, 0, 0.15));
+
+    transition:
+        width 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+
+/* =========================================
+   GIF DESPUÉS DE YES
+========================================= */
+
+.letter-window.final .cat {
+    width: 340px;
+}
+
+
+
+/* =========================================
+   BOTONES YES / NO
+========================================= */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+    position: relative;
+
+    min-height: 110px;
+}
+
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.btn {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+
+
+/* =========================================
+   BOTÓN YES
+========================================= */
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* =========================================
+   BOTÓN NO
+========================================= */
+
+.no-wrapper {
+    position: relative;
+}
+
+.no-btn {
+    position: relative;
+    z-index: 1;
+    cursor: default;
+    transition: transform 0.15s ease;
+}
+
+
+
+/* =========================================
+   CONTENIDO DESPUÉS DE YES
+========================================= */
+
+.final-content {
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+    margin-top: 5px;
+}
+
+
+
+/* =========================================
+   TEXTO FINAL
+========================================= */
+
+.final-text {
+    margin: 0;
+
+    padding: 14px 30px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 23px;
+    line-height: 1.4;
+    color: #1a2229;
+
+    background-color: rgba(255, 255, 255, 0.96);
+    border: 3px solid #99002b;
+    border-radius: 15px;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* =========================================
+   BOTÓN FINAL
+========================================= */
+
+.final-button {
+    display: inline-block;
+
+    padding: 11px 27px;
+
+    background-color: #99002b;
+    color: white;
+
+    border: 3px solid #99002b;
+    border-radius: 12px;
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.final-button:hover {
+    background-color: white;
+    color: #99002b;
+    transform: scale(1.07);
+}
+
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 650px) {
+    #envelope-container {
+        width: 90%;
+        padding: 25px 18px;
+    }
+
+    .envelope-text {
+        font-size: 19px;
+        max-width: 100%;
+    }
+
+    #envelope {
+        width: 200px;
+    }
+
+    #letter-container {
+        padding: 15px;
+    }
+
+    .letter-window {
+        width: 100%;
+        min-height: auto;
+        gap: 18px;
+        padding: 25px 18px;
+    }
+
+    .question-box {
+        min-width: 0;
+        width: 90%;
+        padding: 12px 18px;
+    }
+
+    #letter-title {
+        font-size: 25px;
+    }
+
+    .cat {
+        width: 270px;
+        max-height: 300px;
+    }
+
+    .letter-window.final .cat {
+        width: 250px;
+    }
+
+    .btn,
+    .yes-btn,
+    .no-btn {
+        width: 95px;
+    }
+
+    .buttons {
+        gap: 25px;
+    }
+
+    .final-text {
+        width: 90%;
+        font-size: 19px;
+        padding: 10px 15px;
+    }
+
+    .final-button {
+        font-size: 17px;
+        padding: 9px 20px;
+    }
+}
